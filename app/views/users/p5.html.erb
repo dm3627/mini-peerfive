@@ -1,0 +1,25 @@
+<h4>P5 Balance</h4>
+<table>
+  <thead>
+    <tr>
+      <td>S.no</td>
+      <td>Datetime</td>
+      <td>P5 given</td>
+      <td>User Name</td>
+      <td>Delete</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%@reward_histories.each_with_index do |reward_history, index|%>
+      <tr>
+        <td><%= index + 1%></td>
+        <td><%= reward_history.created_at.in_time_zone("Chennai").strftime("%I:%M %P")%></td>
+        <td><%= reward_history.points%></td>
+        <td><%= User.find_by(id: reward_history.given_to).name%></td>
+        <td><%= link_to "Delete", delete_p5_user_path(reward_history), method: :delete%></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+<br/>
+<%= link_to 'New Reward', new_reward_path(@user) %>

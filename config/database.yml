@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: mini-peerfive
+  port: 5432
+  username: dev
+  password: password
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: mini-peerfive
+  port: 5432 
+  username: dev
+  password: password
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: mini-peerfive
+  port: 5432 
+  username: dev
+  password: password
+  host: localhost

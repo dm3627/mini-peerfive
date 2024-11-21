@@ -1,0 +1,23 @@
+<h4>Rewards Balance</h4>
+<table>
+  <thead>
+    <tr>
+      <td>S.no</td>
+      <td>Datetime</td>
+      <td>Rewards Received</td>
+      <td>User Name</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%@reward_histories.each_with_index do |reward_history, index|%>
+      <tr>
+        <td><%= index + 1%></td>
+        <td><%= reward_history.created_at.in_time_zone("Chennai").strftime("%I:%M %P")%></td>
+        <td><%= reward_history.points%></td>
+        <td><%= User.find_by(id: reward_history.given_by).name%></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+<br/>
+<%= link_to 'New Reward', new_reward_path(@user) %>

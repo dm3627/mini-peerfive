@@ -1,0 +1,18 @@
+<%= form_with(url: rewards_path) do |form| %>
+  <div>
+    <%= form.label :user %><br>
+    <%= form.collection_select :given_to, @users, :id, :name, prompt: true%>
+  </div>
+  <br/>
+  <div>
+    <%= form.label :points %><br>
+    <%= form.number_field :points, in: 1..100%>
+  </div>
+  <div>
+    <p>Left P5 Balance - <%= @p5_balance%></p>
+  </div>
+  <br/>
+  <div>
+    <%= form.submit 'Submit'%>
+  </div>
+<% end %>
